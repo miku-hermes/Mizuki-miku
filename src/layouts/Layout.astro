@@ -21,6 +21,8 @@ import "../styles/wallpaper-navbar-transparent.css";
 import "../styles/fancybox-custom.css";
 import "../styles/expressive-code.css";
 import "../styles/panel-animations.css";
+// 桌面端隐藏与右栏音乐控件重复的悬浮播放器胶囊（:has 守卫，移动端不受影响）
+import "../styles/music-player-desktop.css";
 // 此文件此前没有任何 import，只因 Image.astro / [...slug].astro 里过宽的
 // import.meta.glob("../../**") 把它拉进构建图、并被 Vite 生成独立 CSS chunk 挂到
 // 每个页面的 <head> 上才「意外生效」。glob 收敛到图片扩展名后必须显式引入，保持行为不变。

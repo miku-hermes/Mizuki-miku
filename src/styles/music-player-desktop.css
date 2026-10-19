@@ -1,0 +1,13 @@
+/*
+ * 桌面端右下角悬浮播放器：与右栏的 .music-sidebar-widget 是同一套播放状态的重复入口，
+ * 而它 fixed 在视口右下角时会盖住右栏最后一张卡片（首页「站点统计」的「运行天数」那一行，
+ * 1600×814 下实测重叠 14,961 px²）。
+ *
+ * 只在「页面上确实存在右栏音乐控件」时才隐藏悬浮胶囊 —— 用 :has() 做守卫，
+ * 移动端（右栏隐藏）和没有该控件的页面完全不受影响。
+ */
+@media (min-width: 1024px) {
+  body:has(.music-sidebar-widget) .music-player.fixed {
+    display: none;
+  }
+}
