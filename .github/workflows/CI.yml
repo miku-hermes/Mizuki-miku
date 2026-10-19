@@ -1,4 +1,4 @@
-name: Fuwari-yCENzh CI
+name: CI
 
 on:
   push:
@@ -64,6 +64,32 @@ jobs:
       - name: Run ESLint
         run: pnpm exec eslint ./src --max-warnings 0
 
+  typecheck:
+    name: Type Check (no content sync)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 与 check 任务互补：校验「关闭内容同步」时仓库内置的回退数据也能通过类型检查
+      - name: Run Astro Check
+        run: pnpm astro check
+        env:
+          ENABLE_CONTENT_SYNC: false
+
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
@@ -110,6 +136,9 @@ jobs:
       - name: Run pnpm audit
         # 门槛设为 critical：已知残留 3 个 svgo ReDoS(high) 暂接受
         # （多版本引用、强制升级风险高、攻击面仅为开发者自产 SVG）
+        # astro <7.2.8 的 AVIF 图片优化 RCE(GHSA-26w7-cxv4-gfx2) 已按 pnpm.auditConfig.ignoreGhsas 白名单接受：
+        # 补丁只存在于 Astro 7.2.8+（当前为 Astro 6.x，无回补版本），且触发条件是在构建期处理恶意
+        # AVIF —— 本站只处理仓库内自有图片，非外部输入。升 Astro 7 属大版本，另行排期。
         run: pnpm audit --prod --audit-level=critical
 
   build:
