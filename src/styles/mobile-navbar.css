@@ -150,25 +150,12 @@
   }
 }
 
-/* 小屏手机优化 */
-@media (max-width: 480px) {
-  #navbar > div {
-    border-radius: 0.5rem;
-    margin: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    max-width: none;
-    width: 100%;
-  }
-}
+/* 小屏手机优化的 #navbar > div 规则见本文件下方「小屏手机优化 (≤480px)」同名块
+   （该块带 !important，会完全覆盖此处；保留两份只会造成"改一处、漏一处"） */
 
-/* 手机端导航栏全宽优化 */
+/* 手机端导航栏全宽优化（max-width / width / margin-* 由下方带 !important 的同名块负责） */
 @media (max-width: 768px) {
   #navbar > div {
-    max-width: none;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
     backdrop-filter: none;
   }
 
