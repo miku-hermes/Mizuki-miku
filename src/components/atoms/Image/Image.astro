@@ -34,9 +34,10 @@ const isPublic = src.startsWith("/");
 // biome-ignore lint/suspicious/noImplicitAnyLet: <check later>
 let img: ImageMetadata | undefined;
 if (isLocal) {
-	const files = import.meta.glob<ImageMetadata>("../../../**", {
-		import: "default",
-	});
+	const files = import.meta.glob<ImageMetadata>(
+		"../../../**/*.{jpg,jpeg,png,gif,webp,avif,svg}",
+		{ import: "default" },
+	);
 	const normalizedPath = path
 		.normalize(path.join("../../../", basePath, src))
 		.replace(/\\/g, "/");
