@@ -86,11 +86,6 @@ html.is-animating .transition-swup-fade {
   animation: fade-in-up var(--transition-duration) ease-out forwards;
 }
 
-.onload-animation-fade-in {
-  opacity: 0;
-  animation: fade-in var(--transition-duration) ease-in forwards;
-}
-
 /* 渐进式动画延迟 */
 .onload-animation:nth-child(1) {
   animation-delay: calc(var(--transition-stagger) * 0);
@@ -108,35 +103,14 @@ html.is-animating .transition-swup-fade {
   animation-delay: calc(var(--transition-stagger) * 4);
 }
 
-/* 特殊元素的动画 */
-.transition-slide-in {
-  opacity: 0;
-  transform: translateY(calc(var(--transition-translate) * 1.2));
-  transition: all calc(var(--transition-duration) * 1.5) var(--transition-easing);
-}
-
 .transition-slide-in.active {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 卡片动画 */
-.card-animation {
-  opacity: 0;
-  transform: translateY(calc(var(--transition-translate) * 1.5)) scale(0.98);
-  transition: all calc(var(--transition-duration) * 1.2) var(--transition-easing);
-}
-
 .card-animation.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
-}
-
-/* 导航动画 */
-.nav-animation {
-  opacity: 0;
-  transform: translateX(calc(var(--transition-translate) * -1));
-  transition: all calc(var(--transition-duration) * 0.8) var(--transition-easing);
 }
 
 .nav-animation.loaded {
@@ -152,12 +126,6 @@ html.is-animating .transition-swup-fade {
 .card-animation {
   -webkit-font-smoothing: antialiased;
   contain: layout style;
-}
-
-/* GPU 加速优化 - 用于 wave 等重型动画 */
-.gpu-accelerated {
-  contain: layout style paint;
-  isolation: isolate;
 }
 
 /* View Transitions API - 主题切换动画 */
