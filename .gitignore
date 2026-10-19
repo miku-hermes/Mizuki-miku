@@ -57,9 +57,9 @@ src/data/bilibili-data.json
 src/content/
 # 无斜杠模式：同时匹配目录和 symlink（sync-content 创建的是符号链接）
 public/images
+src/data
 
-# env 文件：禁止提交（当前仓库已提交的 .env 无敏感信息，
-# 但 BILI_SESSDATA 等填入真实值后绝不能入库）
-.env
-.env.*
-!.env.example
+# env 文件：.env 需要随仓库提交（云端构建靠它读取 ENABLE_CONTENT_SYNC / CONTENT_REPO_URL，
+# 其中不含任何密钥）。只忽略本机覆盖文件与填了真实密钥的变体。
+.env.local
+.env.*.local

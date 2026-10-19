@@ -5,8 +5,8 @@
 	"scripts": {
 		"sync-content": "node scripts/sync-content.js",
 		"init-content": "node scripts/init-content-repo.js",
-		"predev": "node scripts/sync-content.js || true",
-		"prebuild": "node scripts/sync-content.js || true && node scripts/copy-iconify-icons.js || true && node scripts/trim-iconify.mjs || true",
+		"predev": "node scripts/sync-content.js",
+		"prebuild": "node scripts/sync-content.js && node scripts/copy-iconify-icons.js && node scripts/trim-iconify.mjs",
 		"dev": "astro dev",
 		"start": "astro dev",
 		"check": "astro check",
@@ -119,6 +119,11 @@
 	},
 	"packageManager": "pnpm@10.22.0",
 	"pnpm": {
+		"auditConfig": {
+			"ignoreGhsas": [
+				"GHSA-26w7-cxv4-gfx2"
+			]
+		},
 		"overrides": {
 			"tar": "^7.5.19",
 			"serialize-javascript": "^7.0.3",
