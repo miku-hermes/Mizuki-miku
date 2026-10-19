@@ -8,14 +8,6 @@ import type { WidgetConfig } from "./types/widget";
 import { widgetManager } from "./widget-manager";
 
 /**
- * 组件渲染结果
- */
-export interface RenderResult {
-	Component: unknown;
-	props: Record<string, unknown>;
-}
-
-/**
  * 获取组件的 class 和 style 属性
  * @param component 组件配置
  * @param index 组件索引
@@ -65,23 +57,4 @@ export function buildComponentProps(
 	}
 
 	return props;
-}
-
-/**
- * 获取设备类型
- * @param width 窗口宽度
- * @param breakpoints 断点配置
- * @returns 设备类型
- */
-export function getDeviceType(
-	width: number,
-	breakpoints: { mobile: number; tablet: number },
-): "mobile" | "tablet" | "desktop" {
-	if (width < breakpoints.mobile) {
-		return "mobile";
-	}
-	if (width < breakpoints.tablet) {
-		return "tablet";
-	}
-	return "desktop";
 }

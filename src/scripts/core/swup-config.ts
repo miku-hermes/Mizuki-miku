@@ -113,9 +113,6 @@ export const SCROLL_CONFIG = {
 	navbarHideOffset: 88,
 } as const;
 
-// 性能模式配置
-export type PerformanceMode = "high" | "medium" | "low" | "auto";
-
 export interface PerformanceConfig {
 	// 是否启用 wave 动画
 	waveAnimation: {
@@ -139,33 +136,6 @@ export interface PerformanceConfig {
 		enabled: boolean;
 		hideOnMobile: boolean;
 	};
-}
-
-export const PERFORMANCE_CONFIG: PerformanceConfig = {
-	waveAnimation: {
-		enabled: true,
-		layers: 4,
-		layersMobile: 2,
-	},
-	sakuraEffect: {
-		enabled: true,
-		maxParticles: 60,
-		maxParticlesMobile: 25,
-	},
-	live2D: {
-		enabled: true,
-		hideOnMobile: true,
-	},
-	typewriter: {
-		enabled: true,
-		hideOnMobile: true,
-	},
-};
-
-// 轮播配置类型
-export interface CarouselConfig {
-	enable: boolean;
-	interval: number;
 }
 
 // Fancybox 配置类型

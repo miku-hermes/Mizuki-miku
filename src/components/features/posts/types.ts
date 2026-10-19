@@ -7,22 +7,6 @@ export interface PostCardProps {
 	style?: string;
 }
 
-export interface PostMetaProps {
-	published: Date;
-	updated?: Date;
-	category?: string;
-	tags?: string[];
-	hideUpdateDate?: boolean;
-	hideTagsForMobile?: boolean;
-	isHome?: boolean;
-	className?: string;
-	id?: string;
-	showOnlyBasicMeta?: boolean;
-	words?: number;
-	minutes?: number;
-	showWordCount?: boolean;
-}
-
 export interface PostPageProps {
 	page: Page<CollectionEntry<"posts">>;
 }

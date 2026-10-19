@@ -14,10 +14,6 @@ export function formatDateKey(
 	return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
-export function getMonthKey(year: number, month: number): string {
-	return `${year}-${month}`;
-}
-
 export function isToday(
 	year: number,
 	month: number,
@@ -27,17 +23,4 @@ export function isToday(
 	todayDate: number,
 ): boolean {
 	return year === todayYear && month === todayMonth && day === todayDate;
-}
-
-export function parseDateFromPath(
-	path: string,
-): { year: number; month: number } | null {
-	const match = path.match(/(\d{4})-(\d{2})-\d{2}/);
-	if (match) {
-		return {
-			year: parseInt(match[1]),
-			month: parseInt(match[2]) - 1,
-		};
-	}
-	return null;
 }

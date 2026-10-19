@@ -86,35 +86,6 @@ export function isSwupReady(): boolean {
 }
 
 /**
- * 等待 Swup 准备就绪
- * @param timeout 超时时间（毫秒）
- */
-export function waitForSwup(timeout = 5000): Promise<boolean> {
-	return new Promise((resolve) => {
-		if (isSwupReady()) {
-			resolve(true);
-			return;
-		}
-
-		const checkSwup = () => {
-			if (isSwupReady()) {
-				clearTimeout(timeoutId);
-				document.removeEventListener("swup:enable", checkSwup);
-				resolve(true);
-			}
-		};
-
-		// 监听 Swup 启用事件
-		document.addEventListener("swup:enable", checkSwup);
-
-		const timeoutId = setTimeout(() => {
-			document.removeEventListener("swup:enable", checkSwup);
-			resolve(false);
-		}, timeout);
-	});
-}
-
-/**
  * 预加载页面
  * @param url 要预加载的页面URL
  */

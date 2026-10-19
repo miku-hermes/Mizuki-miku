@@ -2,8 +2,6 @@ import type { Song } from "./types";
 
 export const STORAGE_KEY_VOLUME = "music-player-volume";
 
-export const DEFAULT_VOLUME = 0.7;
-
 export const LOCAL_PLAYLIST: Song[] = [
 	{
 		id: 1,

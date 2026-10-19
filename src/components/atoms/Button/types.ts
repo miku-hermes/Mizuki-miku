@@ -6,13 +6,6 @@ export interface ButtonProps {
 	class?: string;
 }
 
-export interface ButtonLinkProps {
-	badge?: string;
-	url?: string;
-	label?: string;
-	class?: string;
-}
-
 export interface ButtonTagProps {
 	size?: string;
 	dot?: boolean;

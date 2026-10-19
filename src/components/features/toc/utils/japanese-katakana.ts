@@ -66,8 +66,6 @@ export const JAPANESE_KATAKANA = [
 	"ン",
 ] as const;
 
-export type JapaneseKatakanaChar = (typeof JAPANESE_KATAKANA)[number];
-
 /**
  * 获取 TOC 徽章文本
  * @param index - 索引（从 0 开始）
