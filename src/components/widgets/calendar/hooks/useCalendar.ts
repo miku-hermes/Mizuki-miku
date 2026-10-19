@@ -17,29 +17,6 @@ export function getDaysInMonth(year: number, month: number): number {
 }
 
 /**
- * Generate calendar grid data
- */
-export function generateCalendarGrid(
-	year: number,
-	month: number,
-): { day: number; dateKey: string; hasPost: boolean; postCount: number }[] {
-	const daysInMonth = getDaysInMonth(year, month);
-	const grid: {
-		day: number;
-		dateKey: string;
-		hasPost: boolean;
-		postCount: number;
-	}[] = [];
-
-	for (let day = 1; day <= daysInMonth; day++) {
-		const dateKey = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-		grid.push({ day, dateKey, hasPost: false, postCount: 0 });
-	}
-
-	return grid;
-}
-
-/**
  * Check if a date is today
  */
 export function isToday(
@@ -69,26 +46,6 @@ export function formatDateKey(
 	day: number,
 ): string {
 	return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-}
-
-/**
- * Get posts for a specific date
- */
-export function getPostsForDate(
-	dateKey: string,
-	postDateMap: Record<string, { id: string; title: string; date: string }[]>,
-): { id: string; title: string; date: string }[] {
-	return postDateMap[dateKey] || [];
-}
-
-/**
- * Get posts for a specific month
- */
-export function getPostsForMonth(
-	monthKey: string,
-	postsByMonth: Record<string, { id: string; title: string; date: string }[]>,
-): { id: string; title: string; date: string }[] {
-	return postsByMonth[monthKey] || [];
 }
 
 /**

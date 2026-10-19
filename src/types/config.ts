@@ -311,22 +311,6 @@ export type WALLPAPER_MODE =
 	| typeof WALLPAPER_FULLSCREEN
 	| typeof WALLPAPER_NONE;
 
-export interface BlogPostData {
-	body: string;
-	title: string;
-	published: Date;
-	description: string;
-	tags: string[];
-	draft?: boolean;
-	image?: string;
-	category?: string;
-	pinned?: boolean;
-	prevTitle?: string;
-	prevSlug?: string;
-	nextTitle?: string;
-	nextSlug?: string;
-}
-
 export interface ExpressiveCodeConfig {
 	theme: string;
 	hideDuringThemeTransition?: boolean; // 是否在主题切换时隐藏代码块
